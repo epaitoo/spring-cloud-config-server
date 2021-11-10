@@ -1,8 +1,20 @@
+# For Local Dev (Docker Compose)
+# eureka:
+#   client:
+#     register-with-eureka: true
+#     fetch-registry: true
+#     service-url:
+#       defaultZone: http://eureka-server:8761/eureka
+#   instance:
+#     hostname: eureka-server
+
+# Local Dev (Minikube)
 eureka:
-  client:
-    register-with-eureka: true
-    fetch-registry: true
-    service-url:
-      defaultZone: http://eureka-server:8761/eureka
   instance:
-    hostname: eureka-server
+    preferIpAddress: true
+    hostname: eureka-0
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://eureka-0.eureka.default.svc.cluster.local:8761/eureka
